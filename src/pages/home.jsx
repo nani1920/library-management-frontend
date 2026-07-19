@@ -8,6 +8,9 @@ import RecommendedBooks from "../components/currentlyReading/RecommendedBook";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import { Link } from "react-router-dom";
+import useBooksHistory from "../hooks/useBooksHistory";
+import useWishlist from "../hooks/useWishlist";
+import useProfile from "../hooks/useProfile";
 
 const SectionHeader = ({ title, action, nav }) => (
   <div className="flex items-center justify-between mb-4">
@@ -23,6 +26,9 @@ const SectionHeader = ({ title, action, nav }) => (
 );
 
 const Home = () => {
+  const { borrowed, returned } = useBooksHistory();
+  const { books: wishlistBooks } = useWishlist();
+  const { profile } = useProfile();
   return (
     <div className="flex h-screen bg-slate-50">
       <Sidebar />
@@ -33,7 +39,7 @@ const Home = () => {
 
           <section className="mt-8">
             <p className="text-sm font-semibold text-slate-500">
-              👋 Welcome Back! Nani
+              👋 Welcome Back! {profile?.name || ""}
             </p>
 
             <h1 className="mt-1 text-3xl font-bold text-blue-900">
@@ -42,7 +48,11 @@ const Home = () => {
           </section>
 
           <section className="mt-6">
-            <StatsCards />
+            <StatsCards
+              borrowed={borrowed}
+              returned={returned}
+              wishlisted={wishlistBooks.length}
+            />
           </section>
 
           <section className="mt-6">

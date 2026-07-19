@@ -1,37 +1,37 @@
 /** @format */
 import { PiBookOpenTextBold } from "react-icons/pi";
-import { FaRegCalendarTimes } from "react-icons/fa";
 import { FaClockRotateLeft } from "react-icons/fa6";
-import { IoStar } from "react-icons/io5";
+import { IoBookmarkOutline } from "react-icons/io5";
+import { MdMenuBook } from "react-icons/md";
 
-const stats = [
-  {
-    icon: PiBookOpenTextBold,
-    iconColor: "text-blue-900",
-    count: "4",
-    label: "Books Borrowed",
-  },
-  {
-    icon: FaRegCalendarTimes,
-    iconColor: "text-orange-600",
-    count: "1",
-    label: "Over Due",
-  },
-  {
-    icon: FaClockRotateLeft,
-    iconColor: "text-gray-900",
-    count: "12",
-    label: "Returned",
-  },
-  {
-    icon: IoStar,
-    iconColor: "text-blue-900",
-    count: "4.5",
-    label: "Member Rank",
-  },
-];
+const StatsCards = ({ borrowed, returned, wishlisted }) => {
+  const stats = [
+    {
+      icon: PiBookOpenTextBold,
+      iconColor: "text-blue-900",
+      count: borrowed,
+      label: "Books Borrowed",
+    },
+    {
+      icon: FaClockRotateLeft,
+      iconColor: "text-gray-900",
+      count: returned,
+      label: "Returned",
+    },
+    {
+      icon: MdMenuBook,
+      iconColor: "text-green-700",
+      count: borrowed + returned,
+      label: "Total Books",
+    },
+    {
+      icon: IoBookmarkOutline,
+      iconColor: "text-blue-900",
+      count: wishlisted,
+      label: "Wishlist",
+    },
+  ];
 
-const Cards = () => {
   return (
     <>
       <ul className="mt-6 grid grid-cols-2 gap-2 md:grid-cols-8">
@@ -54,4 +54,4 @@ const Cards = () => {
   );
 };
 
-export default Cards;
+export default StatsCards;
