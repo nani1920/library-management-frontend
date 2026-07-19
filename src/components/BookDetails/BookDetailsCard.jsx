@@ -164,7 +164,7 @@ const BookDetailsCard = () => {
         <div className="mt-4">
           <h1 className="font-semibold text-xl ">Description</h1>
           <p className="text-gray-700  text-sm whitespace-pre-line">
-            {description}
+            {book.description}
           </p>
         </div>
         <div className="my-6 flex flex-col sm:flex-row gap-3">
