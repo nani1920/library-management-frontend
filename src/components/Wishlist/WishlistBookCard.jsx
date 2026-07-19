@@ -124,7 +124,7 @@ const WishlistBookCard = ({ books, onRemove }) => {
                 <div className="mt-auto flex gap-2 pt-1">
                   <button
                     onClick={() => handleBorrowClick(book._id)}
-                    className="flex-1 flex justify-center items-center gap-1 px-3 py-1 rounded-lg text-xs font-semibold bg-blue-900 text-white hover:bg-blue-800 transition cursor-pointer"
+                    className="flex-1 flex justify-center items-center gap-1 px-3 py-2 rounded-lg text-xs font-semibold bg-blue-900 text-white hover:bg-blue-800 transition cursor-pointer"
                   >
                     <MdOutlineShoppingCart className="text-sm" />
                     Borrow
@@ -132,7 +132,7 @@ const WishlistBookCard = ({ books, onRemove }) => {
 
                   <button
                     onClick={() => handleRemoveClick(book._id)}
-                    className="flex justify-center items-center px-3 py-1 rounded-lg text-xs font-semibold border border-red-400 text-red-500 hover:bg-red-50 transition cursor-pointer"
+                    className="flex justify-center items-center px-3 py-2 rounded-lg text-xs font-semibold border border-red-400 text-red-500 hover:bg-red-50 transition cursor-pointer"
                   >
                     <MdDeleteOutline className="text-base" />
                   </button>
